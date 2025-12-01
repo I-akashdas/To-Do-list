@@ -1,22 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TO-Do-List</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List Project</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">T0-Do-List</div>
-        <div class="AddTask">
-            <input type="text" placeholder="Add a new Task" id="inputTask">
-            <button onclick="addTask()">Add Task</button>
-        </div>
-        <ul class="tasklist" id="tasklist"></ul>
+  <div class="container">
+
+    <h1 class="title">To-Do List</h1>
+
+    <!-- Add Task Form -->
+    <form id="taskForm" class="task-form">
+      <input
+        type="text"
+        id="taskInput"
+        placeholder="Enter task"
+        required
+      />
+
+      <select id="categorySelect">
+        <option>Work</option>
+        <option>Personal</option>
+        <option>School</option>
+        <option selected>Other</option>
+      </select>
+
+      <select id="prioritySelect">
+        <option>High</option>
+        <option selected>Medium</option>
+        <option>Low</option>
+      </select>
+
+      <button type="submit" id="submitBtn">Add Task</button>
+      <button type="button" id="cancelEditBtn" class="hidden">Cancel Edit</button>
+    </form>
+
+    <p id="editMessage" class="edit-msg hidden">
+      Editing... Save or Cancel.
+    </p>
+
+    <!-- Filters -->
+    <div class="filters">
+      <select id="filterCategory">
+        <option value="All">Category: All</option>
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+        <option value="School">School</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <select id="filterPriority">
+        <option value="All">Priority: All</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+
+      <select id="filterStatus">
+        <option value="All">Status: All</option>
+        <option value="Active">Active</option>
+        <option value="Completed">Completed</option>
+      </select>
     </div>
 
-    
-    <script src="script.js"></script>
+    <!-- Tasks List -->
+    <ul id="taskList" class="task-list"></ul>
+
+    <!-- Footer Buttons -->
+    <div class="footer">
+      <button id="clearCompleted">Clear Completed</button>
+      <button id="clearAll" class="danger">Clear All</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
